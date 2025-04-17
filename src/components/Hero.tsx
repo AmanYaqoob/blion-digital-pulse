@@ -69,19 +69,15 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center px-6 py-32 md:px-12 lg:px-20 bg-zinc-900/80 overflow-hidden">
-      {/* Video Background */}
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 py-32 md:px-12 lg:px-20 bg-zinc-800/90 overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <img 
+          src="/lovable-uploads/e260742c-3aaa-4ecf-8945-b859543c1861.png" 
+          alt="Blue abstract light" 
           className="w-full h-full object-cover"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-pixels-in-a-purple-corridor-42634-large.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
 
       {/* Background gradient circles */}
@@ -100,71 +96,39 @@ const Hero = () => {
         <FloatingIcon icon={Sparkles} delay={1.3} index={4} />
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto text-center">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="flex flex-col items-center"
         >
-          <div className="lg:order-1 order-2">
-            <motion.h1
-              variants={item}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight"
-            >
-              Elevate Your <span className="text-gradient">Digital Presence</span> With Premium Solutions
-            </motion.h1>
-            <motion.p
-              variants={item}
-              className="mt-6 text-xl text-gray-300 max-w-xl"
-            >
-              Transforming ideas into exceptional digital experiences through innovative design and development.
-            </motion.p>
-            <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/book"
-                className="px-8 py-3 rounded-full bg-blion-purple text-white font-medium hover:bg-blion-purple-dark transition-colors flex items-center gap-2 group hover:scale-105 transform duration-200"
-              >
-                Book a Consultation
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/portfolio"
-                className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors hover:border-white/40 hover:scale-105 transform duration-200"
-              >
-                View Our Work
-              </Link>
-            </motion.div>
-          </div>
-          
-          <motion.div 
-            variants={item} 
-            className="lg:order-2 order-1 relative"
+          <motion.h1
+            variants={item}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight max-w-3xl mx-auto"
           >
-            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blion-purple-dark/80 to-transparent mix-blend-overlay rounded-2xl z-10 group-hover:opacity-70 transition-opacity duration-300"></div>
-              
-              <motion.img
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80"
-                alt="Digital workspace"
-                className="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-              />
-              
-              <motion.div 
-                className="absolute -bottom-8 -right-8 glass-card p-6 rounded-xl max-w-xs z-20 hover:shadow-purple-500/20 hover:shadow-lg transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="text-sm font-medium text-blion-purple">Our Expertise</div>
-                <h3 className="text-lg font-bold mt-2 font-bricolage">Premium Digital Solutions</h3>
-                <p className="text-sm text-gray-300 mt-2">Specializing in property management websites and custom digital experiences</p>
-              </motion.div>
-            </div>
+            Elevate Your <span className="text-gradient">Digital Presence</span> With Premium Solutions
+          </motion.h1>
+          <motion.p
+            variants={item}
+            className="mt-6 text-xl text-gray-300 max-w-xl mx-auto"
+          >
+            Transforming ideas into exceptional digital experiences through innovative design and development.
+          </motion.p>
+          <motion.div variants={item} className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/book"
+              className="px-8 py-3 rounded-full bg-blion-purple text-white font-medium hover:bg-blion-purple-dark transition-colors flex items-center gap-2 group hover:scale-105 transform duration-200"
+            >
+              Book a Consultation
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/portfolio"
+              className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors hover:border-white/40 hover:scale-105 transform duration-200"
+            >
+              View Our Work
+            </Link>
           </motion.div>
         </motion.div>
       </div>

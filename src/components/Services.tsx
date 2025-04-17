@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Code2, Globe, Paintbrush, Video, BarChart3, Database, Webhook, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 interface ServiceCardProps {
   icon: React.ReactNode;

@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useToast } from "@/components/ui/use-toast";
@@ -8,26 +7,31 @@ import { CalendarCheck, Clock, Send } from "lucide-react";
 
 const BookingCalendar = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
-  const { toast } = useToast();
   
+  const { toast } = useToast();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const timeSlots = [
-    "09:00 AM", "10:00 AM", "11:00 AM", "01:00 PM", 
-    "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM"
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Form validation
     if (!name || !email || !selectedDate || !selectedTime || !service) {
       toast({
         title: "Missing Information",
@@ -37,13 +41,11 @@ const BookingCalendar = () => {
       return;
     }
     
-    // Here you would typically send the form data to your backend
     toast({
       title: "Consultation Booked!",
       description: `Your consultation is scheduled for ${selectedDate?.toDateString()} at ${selectedTime}.`,
     });
     
-    // Reset form
     setSelectedDate(null);
     setSelectedTime("");
     setName("");
@@ -61,7 +63,9 @@ const BookingCalendar = () => {
     "Video Editing",
     "Social Media Marketing",
     "Property Management Website",
-    "Other",
+    "Custom Hybrid Application",
+    "Web-Based Software",
+    "Other"
   ];
 
   return (
@@ -97,7 +101,7 @@ const BookingCalendar = () => {
               </label>
               <DatePicker
                 selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                onChange={(date: Date) => setSelectedDate(date)}
                 minDate={new Date()}
                 placeholderText="Select a date"
                 className="w-full rounded-lg bg-white/5 border border-white/10 p-3 text-white"

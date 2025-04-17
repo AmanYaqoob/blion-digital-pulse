@@ -19,7 +19,7 @@ const ServiceDetail = ({ icon, title, description, features }: ServiceDetailProp
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="glass-card p-8 rounded-xl"
+      className="glass-card p-8 rounded-xl hover:shadow-lg hover:shadow-blion-purple/10 transition-all duration-300"
     >
       <div className="flex items-center mb-6">
         <div className="h-16 w-16 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mr-4">
@@ -40,12 +40,22 @@ const ServiceDetail = ({ icon, title, description, features }: ServiceDetailProp
         ))}
       </ul>
       
-      <Link
-        to="/book"
-        className="inline-block mt-4 px-6 py-3 bg-blion-purple hover:bg-blion-purple-dark text-white rounded-lg transition-colors"
-      >
-        Get Started
-      </Link>
+      <div className="flex flex-wrap gap-4">
+        <Link
+          to="/book"
+          className="inline-block px-6 py-3 bg-blion-purple hover:bg-blion-purple-dark text-white rounded-lg transition-colors hover:scale-105 transform duration-200"
+        >
+          Book a Consultation
+        </Link>
+        
+        <Link
+          to="/book"
+          className="inline-flex items-center px-6 py-3 border border-blion-purple/30 text-blion-purple hover:bg-blion-purple/10 rounded-lg transition-colors group"
+        >
+          Start a Project
+          <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
     </motion.div>
   );
 };

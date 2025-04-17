@@ -1,7 +1,8 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Code2, Globe, Paintbrush, Video, BarChart3, Database, Webhook } from "lucide-react";
+import { Code2, Globe, Paintbrush, Video, BarChart3, Database, Webhook, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -20,13 +21,20 @@ const ServiceCard = ({ icon, title, description, index }: ServiceCardProps) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card p-8 rounded-xl"
+      className="glass-card p-8 rounded-xl hover:shadow-lg hover:shadow-blion-purple/10 transition-all duration-300"
     >
       <div className="h-14 w-14 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mb-6">
         {icon}
       </div>
       <h3 className="text-xl font-bold font-bricolage mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <p className="text-gray-400 mb-6">{description}</p>
+      <Link
+        to="/book"
+        className="inline-flex items-center text-blion-purple hover:text-blion-purple-light transition-colors group"
+      >
+        Start a Project
+        <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+      </Link>
     </motion.div>
   );
 };

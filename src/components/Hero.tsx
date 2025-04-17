@@ -3,12 +3,12 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Database, Palette, Globe, Smartphone, Server, PanelRight } from "lucide-react";
+import { ArrowRight, Code, Database, Palette, Globe, Smartphone, Server, PanelRight, Cpu, Cloud, Monitor, AlignCenter } from "lucide-react";
 
 const FloatingIcon = ({ icon, delay, x, y }: { icon: React.ReactNode, delay: number, x: number, y: number }) => {
   return (
     <motion.div
-      className="absolute text-blion-purple/70 hover:text-blion-purple transition-colors"
+      className="absolute text-blion-purple/70 hover:text-blion-purple transition-colors hover:scale-125 cursor-pointer"
       initial={{ opacity: 0, x, y }}
       animate={{ 
         opacity: [0.4, 0.8, 0.4],
@@ -71,68 +71,57 @@ const Hero = () => {
         style={gradientStyle}
       />
 
-      {/* Floating icons */}
-      <FloatingIcon icon={<Code size={30} />} delay={0} x={-150} y={-100} />
-      <FloatingIcon icon={<Database size={24} />} delay={1} x={150} y={-120} />
-      <FloatingIcon icon={<Palette size={28} />} delay={1.5} x={-180} y={50} />
-      <FloatingIcon icon={<Globe size={32} />} delay={0.5} x={200} y={80} />
-      <FloatingIcon icon={<Server size={26} />} delay={2} x={-100} y={150} />
-      <FloatingIcon icon={<Smartphone size={24} />} delay={1.8} x={120} y={-80} />
-      <FloatingIcon icon={<PanelRight size={22} />} delay={0.8} x={170} y={120} />
+      {/* Floating icons distributed throughout the hero section with more spacing */}
+      <FloatingIcon icon={<Code size={32} />} delay={0} x={-250} y={-150} />
+      <FloatingIcon icon={<Database size={28} />} delay={1} x={250} y={-180} />
+      <FloatingIcon icon={<Palette size={30} />} delay={1.5} x={-280} y={80} />
+      <FloatingIcon icon={<Globe size={34} />} delay={0.5} x={280} y={120} />
+      <FloatingIcon icon={<Server size={28} />} delay={2} x={-160} y={200} />
+      <FloatingIcon icon={<Smartphone size={26} />} delay={1.8} x={200} y={-120} />
+      <FloatingIcon icon={<PanelRight size={24} />} delay={0.8} x={220} y={180} />
+      <FloatingIcon icon={<Cpu size={30} />} delay={1.2} x={-300} y={-50} />
+      <FloatingIcon icon={<Cloud size={32} />} delay={0.7} x={320} y={-80} />
+      <FloatingIcon icon={<Monitor size={28} />} delay={1.3} x={-220} y={150} />
+      <FloatingIcon icon={<AlignCenter size={26} />} delay={0.9} x={180} y={-200} />
 
       <div className="max-w-7xl w-full mx-auto px-6 z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center lg:text-left"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight mb-6">
+            Elevate Your <span className="text-gradient">Digital Presence</span><br /> 
+            With Premium Solutions
+          </h1>
+
+          <p className="text-gray-300 text-lg mb-8 mx-auto max-w-2xl">
+            Transforming ideas into exceptional digital experiences through innovative design and development.
+          </p>
+
+          <div className="flex flex-wrap gap-5 justify-center">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-blion-purple hover:bg-blion-purple-dark text-white group transform transition-all hover:scale-105"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight mb-6">
-                Elevate Your <span className="text-gradient">Digital Presence</span><br /> 
-                With Premium Solutions
-              </h1>
+              <Link to="/book">
+                Start a Project 
+                <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
 
-              <p className="text-gray-300 text-lg mb-8">
-                Transforming ideas into exceptional digital experiences through innovative design and development.
-              </p>
-
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="bg-blion-purple hover:bg-blion-purple-dark text-white group"
-                >
-                  <Link to="/book">
-                    Start a Project 
-                    <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-
-                <Button asChild variant="outline" size="lg" className="border-white/10">
-                  <Link to="/portfolio">View Our Work</Link>
-                </Button>
-              </div>
-            </motion.div>
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="border-blion-purple border-2 text-blion-purple hover:bg-blion-purple/10 hover:text-blion-purple-light transition-all transform hover:scale-105"
+            >
+              <Link to="/portfolio">View Our Work</Link>
+            </Button>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative w-full max-w-md">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blion-purple/30 to-blion-purple-light/20 filter blur-xl opacity-70 animate-pulse"></div>
-              <img 
-                src="/lovable-uploads/e260742c-3aaa-4ecf-8945-b859543c1861.png" 
-                alt="Digital Solutions" 
-                className="rounded-2xl w-full shadow-2xl object-cover z-10 relative"
-              />
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

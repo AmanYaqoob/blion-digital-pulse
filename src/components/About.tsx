@@ -34,29 +34,7 @@ const About = () => {
     <section id="about" className="section-padding bg-gradient-to-b from-black to-blion-dark">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" ref={ref}>
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="relative">
-              <div className="relative z-10 overflow-hidden rounded-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80"
-                  alt="Blion Team"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -bottom-8 -right-8 p-6 glass-card rounded-xl z-20 max-w-xs">
-                <div className="text-lg font-bold text-white font-bricolage mb-2">Premium Experience</div>
-                <p className="text-gray-300 text-sm">
-                  Our team combines creativity with technical expertise to deliver exceptional results.
-                </p>
-              </div>
-              <div className="absolute -z-10 top-1/4 -left-8 w-64 h-64 bg-blion-purple/30 rounded-full filter blur-[60px]"></div>
-            </div>
-          </motion.div>
-
+          {/* Image removed as per user request */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}

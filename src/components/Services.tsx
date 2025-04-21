@@ -93,7 +93,7 @@ const services = [
     icon: <PanelRight size={28} />,
     title: "API Integration",
     description:
-      "Seamless integration of third-party APIs to expand and enhance your application’s features.",
+      "Seamless integration of third-party APIs to expand and enhance your application's features.",
     popup:
       "Integrate payment gateways, external services, and cloud APIs to broaden the capabilities of your platform.",
   },
@@ -113,15 +113,15 @@ const moreServices = [
     title: "...and More",
     description:
       "We offer additional services like UI/UX design, social media marketing, and more to help your business thrive.",
-    popup: "From branding to digital marketing, we’re your one-stop partner for all digital business needs.",
+    popup: "From branding to digital marketing, we're your one-stop partner for all digital business needs.",
   },
 ];
 
 const Services = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [activeService, setActiveService] = useState<null | typeof services[0]>(null);
+  const [activeService, setActiveService] = useState<null | (typeof services[0] | typeof moreServices[0])>(null);
 
-  const handleCardClick = (service: typeof services[0]) => {
+  const handleCardClick = (service: typeof services[0] | typeof moreServices[0]) => {
     setActiveService(service);
     setDialogOpen(true);
   };
@@ -192,7 +192,7 @@ const Services = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...services, ...moreServices].map((service, index) => (
+          {services.map((service, index) => (
             <Dialog key={index} open={dialogOpen && activeService?.title === service.title} onOpenChange={setDialogOpen}>
               <DialogTrigger asChild>
                 <div>
@@ -221,6 +221,41 @@ const Services = () => {
               </DialogContent>
             </Dialog>
           ))}
+          
+          {/* Add the "more services" card */}
+          {moreServices.map((service, index) => (
+            <Dialog 
+              key={`more-${index}`} 
+              open={dialogOpen && activeService?.title === service.title} 
+              onOpenChange={setDialogOpen}
+            >
+              <DialogTrigger asChild>
+                <div>
+                  <ServiceCard
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                    index={services.length + index}
+                    onClick={() => handleCardClick(service)}
+                  />
+                </div>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    {service.icon}
+                    <span>{service.title}</span>
+                  </DialogTitle>
+                  <DialogDescription>{service.popup}</DialogDescription>
+                </DialogHeader>
+                <DialogClose asChild>
+                  <Button variant="outline" className="mt-4 w-full">
+                    Close
+                  </Button>
+                </DialogClose>
+              </DialogContent>
+            </Dialog>
+          ))}
         </div>
       </div>
     </section>
@@ -228,4 +263,3 @@ const Services = () => {
 };
 
 export default Services;
-

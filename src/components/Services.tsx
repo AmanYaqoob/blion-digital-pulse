@@ -1,22 +1,23 @@
 
 import React from "react";
 import {
-  Web,
-  Design,
-  Video,
-  Social,
-  Script,
-  Property,
+  Globe,
+  Palette,
+  Camera,
+  Share2,
+  Code,
+  Building,
+  FileCode,
 } from "lucide-react";
 
 const customIcons = {
-  "Web Development": <Web size={36} className="text-blion-purple" />,
-  "UI/UX Design": <Design size={36} className="text-blion-purple" />,
-  "Video Editing": <Video size={36} className="text-blion-purple" />,
-  "Social Media Marketing": <Social size={36} className="text-blion-purple" />,
-  "Web Scraping": <Script size={36} className="text-blion-purple" />,
-  "Property Management Websites": <Property size={36} className="text-blion-purple" />,
-  "Scripting & Automation": <Script size={36} className="text-blion-purple" />,
+  "Web Development": <Globe size={36} className="text-blion-purple" />,
+  "UI/UX Design": <Palette size={36} className="text-blion-purple" />,
+  "Video Editing": <Camera size={36} className="text-blion-purple" />,
+  "Social Media Marketing": <Share2 size={36} className="text-blion-purple" />,
+  "Web Scraping": <Code size={36} className="text-blion-purple" />,
+  "Property Management Websites": <Building size={36} className="text-blion-purple" />,
+  "Scripting & Automation": <FileCode size={36} className="text-blion-purple" />,
 };
 
 const services = [

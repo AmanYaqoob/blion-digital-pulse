@@ -1,25 +1,25 @@
 
 import React from "react";
-import { Web, Design, Script, Video, Property } from "lucide-react";
+import { Palette, Globe2, Code2, Building2 } from "lucide-react";
 
 const processes = [
   {
-    icon: <Design size={32} className="text-blion-purple" />,
+    icon: <Palette size={32} className="text-blion-purple" />,
     title: "1. Collaborate",
     desc: "We begin by learning your goals, business, and audience for a clear vision.",
   },
   {
-    icon: <Web size={32} className="text-blion-purple" />,
+    icon: <Globe2 size={32} className="text-blion-purple" />,
     title: "2. Plan & Architect",
     desc: "We strategize the solution, designing user flows and technical plans.",
   },
   {
-    icon: <Script size={32} className="text-blion-purple" />,
+    icon: <Code2 size={32} className="text-blion-purple" />,
     title: "3. Build & Test",
     desc: "Development and design come together—rapid build, feedback, and testing.",
   },
   {
-    icon: <Property size={32} className="text-blion-purple" />,
+    icon: <Building2 size={32} className="text-blion-purple" />,
     title: "4. Deliver & Support",
     desc: "We launch your solution, provide training, and stand by with ongoing support.",
   },

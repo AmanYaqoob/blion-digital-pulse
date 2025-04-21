@@ -8,8 +8,13 @@ import {
   Code,
   Building,
   FileCode,
+  LayoutGrid,
+  Laptop,
+  Layers,
+  Database,
 } from "lucide-react";
 
+// Choose appropriate icons from the allowed Lucide set for new services
 const customIcons = {
   "Web Development": <Globe size={36} className="text-blion-purple" />,
   "UI/UX Design": <Palette size={36} className="text-blion-purple" />,
@@ -18,6 +23,10 @@ const customIcons = {
   "Web Scraping": <Code size={36} className="text-blion-purple" />,
   "Property Management Websites": <Building size={36} className="text-blion-purple" />,
   "Scripting & Automation": <FileCode size={36} className="text-blion-purple" />,
+  "API Creation": <Database size={36} className="text-blion-purple" />,
+  "API Integration": <Layers size={36} className="text-blion-purple" />,
+  "Web-Based Software": <Laptop size={36} className="text-blion-purple" />,
+  "Custom Hybrid Applications": <LayoutGrid size={36} className="text-blion-purple" />,
 };
 
 const services = [
@@ -57,10 +66,30 @@ const services = [
     description:
       "Save time and reduce manual processes with custom scripts and automation solutions tailored around your workflow.",
   },
+  {
+    name: "API Creation",
+    description:
+      "Design and develop scalable, robust RESTful and GraphQL APIs for your business platforms and products.",
+  },
+  {
+    name: "API Integration",
+    description:
+      "Seamlessly integrate third-party APIs to expand your app’s functionality and connect your services together.",
+  },
+  {
+    name: "Web-Based Software",
+    description:
+      "Custom web applications and software built to solve your unique business challenges, accessible from anywhere.",
+  },
+  {
+    name: "Custom Hybrid Applications",
+    description:
+      "Hybrid mobile/web applications with shared codebases—efficient, modern, and compatible across devices.",
+  },
 ];
 
 const Services = () => (
-  <section id="services" className="section-padding bg-blion-dark">
+  <section id="services" className="section-padding bg-blion-dark/95">
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold font-bricolage mb-4">
@@ -71,7 +100,7 @@ const Services = () => (
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, idx) => (
+        {services.map((service) => (
           <div
             key={service.name}
             className={
@@ -101,3 +130,4 @@ const Services = () => (
 );
 
 export default Services;
+

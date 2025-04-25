@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -54,7 +53,6 @@ const Hero = () => {
     };
   }, []);
 
-  // Calculate the gradient position based on mouse coordinates
   const gradientStyle = {
     background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(155, 135, 245, 0.15), transparent 40%)`,
   };
@@ -65,13 +63,11 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-900"
       style={{ position: 'relative' }}
     >
-      {/* Cursor-following gradient effect */}
       <div 
         className="absolute inset-0 pointer-events-none" 
         style={gradientStyle}
       />
 
-      {/* Floating icons distributed throughout the hero section with more spacing */}
       <FloatingIcon icon={<Code size={32} />} delay={0} x={-250} y={-150} />
       <FloatingIcon icon={<Database size={28} />} delay={1} x={250} y={-180} />
       <FloatingIcon icon={<Palette size={30} />} delay={1.5} x={-280} y={80} />
@@ -91,34 +87,25 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-bricolage leading-tight mb-8">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-bricolage leading-tight mb-8">
             Elevate Your <span className="text-gradient">Digital Presence</span><br /> 
             With Premium Solutions
           </h1>
 
-          <p className="text-gray-300 text-xl mb-10 mx-auto max-w-2xl">
+          <p className="text-gray-300 text-2xl mb-10 mx-auto max-w-2xl">
             Transforming ideas into exceptional digital experiences through innovative design and development.
           </p>
 
-          <div className="flex flex-wrap gap-6 justify-center">
+          <div className="flex justify-center">
             <Button 
               asChild 
               size="lg" 
-              className="bg-blion-purple hover:bg-blion-purple-dark text-white group transform transition-all hover:scale-105 text-lg py-7 px-10"
+              className="bg-blion-purple hover:bg-blion-purple-dark text-white group transform transition-all hover:scale-105 text-2xl py-8 px-12"
             >
               <Link to="/book">
                 Start a Project 
-                <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={24} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
-            </Button>
-
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg" 
-              className="border-blion-purple border-2 text-blion-purple hover:bg-blion-purple/10 hover:text-blion-purple-light transition-all transform hover:scale-105 text-lg py-7 px-10"
-            >
-              <Link to="/portfolio">View Our Work</Link>
             </Button>
           </div>
         </motion.div>

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ScrollIcon from './ui/ScrollIcon';
 import {
   Globe,
   Palette,
@@ -93,7 +95,7 @@ const Services = () => {
   const visibleServices = showAll ? services : services.slice(0, 6);
 
   return (
-    <section id="services" className="section-padding bg-blion-dark/95">
+    <section className="section-padding bg-zinc-900/50 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-bricolage mb-4">
@@ -103,44 +105,46 @@ const Services = () => {
             We offer comprehensive digital solutions to help your business thrive online.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleServices.map((service) => (
-            <div
-              key={service.name}
-              className={
-                "glass-card p-8 rounded-xl border transition-all group" +
-                (service.highlight
-                  ? " border-blion-purple bg-blion-purple/10 shadow-lg scale-105"
-                  : " border-white/10 hover:border-blion-purple/60 hover:bg-blion-purple/5")
-              }
-            >
-              <div className="flex items-center mb-6">
-                <div className="h-14 w-14 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mr-4">
-                  {customIcons[service.name]}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <AnimatePresence>
+            {visibleServices.map((service, index) => (
+              <motion.div
+                key={service.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div
+                  className={
+                    "glass-card p-8 rounded-xl border transition-all group" +
+                    (service.highlight
+                      ? " border-blion-purple bg-blion-purple/10 shadow-lg scale-105"
+                      : " border-white/10 hover:border-blion-purple/60 hover:bg-blion-purple/5")
+                  }
+                >
+                  <div className="flex items-center mb-6">
+                    <div className="h-14 w-14 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mr-4">
+                      {customIcons[service.name]}
+                    </div>
+                    <h3 className="text-xl font-bold font-bricolage">
+                      {service.name}
+                      {service.highlight && (
+                        <span className="ml-2 px-2 py-1 bg-blion-purple text-white text-xs rounded-full font-medium uppercase tracking-wide">
+                          Specialized
+                        </span>
+                      )}
+                    </h3>
+                  </div>
+                  <p className="text-gray-300">{service.description}</p>
                 </div>
-                <h3 className="text-xl font-bold font-bricolage">
-                  {service.name}
-                  {service.highlight && (
-                    <span className="ml-2 px-2 py-1 bg-blion-purple text-white text-xs rounded-full font-medium uppercase tracking-wide">
-                      Specialized
-                    </span>
-                  )}
-                </h3>
-              </div>
-              <p className="text-gray-300">{service.description}</p>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
         {services.length > 6 && (
-          <div className="text-center mt-10">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => setShowAll(!showAll)}
-              className="border-blion-purple text-blion-purple hover:bg-blion-purple/10"
-            >
-              {showAll ? "Show Less" : "Show More Services"}
-            </Button>
+          <div className="flex justify-center mt-8">
+            <ScrollIcon onClick={() => setShowAll(!showAll)} />
           </div>
         )}
       </div>

@@ -145,7 +145,7 @@ const Services = () => {
                   <ChevronDown 
                     size={24} 
                     className={`text-blion-purple transform transition-transform duration-300 ${
-                      showAll ? "rotate-180" : "animate-bounce"
+                      showAll ? "rotate-180" : ""
                     }`}
                   />
                 </div>

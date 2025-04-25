@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -111,9 +112,15 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-blion-purple/30 text-blion-purple/80 hover:border-blion-purple hover:text-blion-purple hover:bg-blion-purple/5 transition-all text-lg py-7 px-10"
+              className="border-blion-purple/50 text-blion-purple hover:bg-blion-purple/10 hover:border-blion-purple transition-all duration-300 group text-lg py-7 px-10"
             >
-              <Link to="/portfolio">View Our Work</Link>
+              <Link to="/portfolio" className="flex items-center">
+                View Our Work
+                <ArrowRight 
+                  size={20} 
+                  className="ml-2 transition-transform group-hover:translate-x-1" 
+                />
+              </Link>
             </Button>
           </div>
         </motion.div>

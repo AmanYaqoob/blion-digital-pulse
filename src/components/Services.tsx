@@ -11,8 +11,8 @@ import {
   Laptop,
   Layers,
   Database,
+  ChevronDown,
 } from "lucide-react";
-import { Button } from "./ui/button";
 
 const customIcons = {
   "Web Development": <Globe size={36} className="text-blion-purple" />,
@@ -133,14 +133,24 @@ const Services = () => {
         </div>
         {services.length > 6 && (
           <div className="text-center mt-10">
-            <Button
-              variant="outline"
-              size="lg"
+            <button
               onClick={() => setShowAll(!showAll)}
-              className="border-blion-purple text-blion-purple hover:bg-blion-purple/10"
+              className="group inline-flex flex-col items-center gap-2 cursor-pointer transition-all duration-300"
             >
-              {showAll ? "Show Less" : "Show More Services"}
-            </Button>
+              <span className="text-gray-400 group-hover:text-blion-purple transition-colors">
+                {showAll ? "Show Less" : "Show More Services"}
+              </span>
+              <div className="relative">
+                <div className="w-10 h-10 rounded-full border-2 border-blion-purple/30 group-hover:border-blion-purple flex items-center justify-center transition-all duration-300">
+                  <ChevronDown 
+                    size={24} 
+                    className={`text-blion-purple transform transition-transform duration-300 ${
+                      showAll ? "rotate-180" : "animate-bounce"
+                    }`}
+                  />
+                </div>
+              </div>
+            </button>
           </div>
         )}
       </div>

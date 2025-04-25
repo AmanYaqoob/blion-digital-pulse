@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -54,7 +53,6 @@ const Hero = () => {
     };
   }, []);
 
-  // Calculate the gradient position based on mouse coordinates
   const gradientStyle = {
     background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(155, 135, 245, 0.15), transparent 40%)`,
   };
@@ -63,15 +61,12 @@ const Hero = () => {
     <section 
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-900"
-      style={{ position: 'relative' }}
     >
-      {/* Cursor-following gradient effect */}
       <div 
         className="absolute inset-0 pointer-events-none" 
         style={gradientStyle}
       />
 
-      {/* Floating icons distributed throughout the hero section with more spacing */}
       <FloatingIcon icon={<Code size={32} />} delay={0} x={-250} y={-150} />
       <FloatingIcon icon={<Database size={28} />} delay={1} x={250} y={-180} />
       <FloatingIcon icon={<Palette size={30} />} delay={1.5} x={-280} y={80} />
@@ -116,7 +111,7 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-blion-purple border-2 text-blion-purple hover:bg-blion-purple/10 hover:text-blion-purple-light transition-all transform hover:scale-105 text-lg py-7 px-10"
+              className="border-blion-purple/30 text-blion-purple/80 hover:border-blion-purple hover:text-blion-purple hover:bg-blion-purple/5 transition-all text-lg py-7 px-10"
             >
               <Link to="/portfolio">View Our Work</Link>
             </Button>

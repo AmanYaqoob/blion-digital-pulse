@@ -91,24 +91,24 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-bricolage leading-tight mb-8">
             Elevate Your <span className="text-gradient">Digital Presence</span><br /> 
             With Premium Solutions
           </h1>
 
-          <p className="text-gray-300 text-lg mb-8 mx-auto max-w-2xl">
+          <p className="text-gray-300 text-xl mb-10 mx-auto max-w-2xl">
             Transforming ideas into exceptional digital experiences through innovative design and development.
           </p>
 
-          <div className="flex flex-wrap gap-5 justify-center">
+          <div className="flex flex-wrap gap-6 justify-center">
             <Button 
               asChild 
               size="lg" 
-              className="bg-blion-purple hover:bg-blion-purple-dark text-white group transform transition-all hover:scale-105"
+              className="bg-blion-purple hover:bg-blion-purple-dark text-white group transform transition-all hover:scale-105 text-lg py-7 px-10"
             >
               <Link to="/book">
                 Start a Project 
-                <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
 
@@ -116,7 +116,7 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-blion-purple border-2 text-blion-purple hover:bg-blion-purple/10 hover:text-blion-purple-light transition-all transform hover:scale-105"
+              className="border-blion-purple border-2 text-blion-purple hover:bg-blion-purple/10 hover:text-blion-purple-light transition-all transform hover:scale-105 text-lg py-7 px-10"
             >
               <Link to="/portfolio">View Our Work</Link>
             </Button>

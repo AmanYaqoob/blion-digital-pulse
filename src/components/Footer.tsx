@@ -1,10 +1,11 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Twitter, Linkedin, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-950 bg-opacity-95 py-16 px-6 md:px-12 lg:px-20 border-t border-zinc-800/30">
+    <footer className="bg-blion-dark py-16 px-6 md:px-12 lg:px-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:grid-cols-4">
           <div className="space-y-4">

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
@@ -12,88 +13,51 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-interface NavLinkProps {
-  href: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}
-
-const NavLink = ({ href, children, onClick }: NavLinkProps) => (
-  <Link
-    to={href}
-    className="group px-2 py-1.5 font-bricolage text-[15px] tracking-wide relative overflow-x-visible
-      transition-colors hover:text-blion-purple text-white/80
-      after:block after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blion-purple after:transition-all after:duration-300 hover:after:w-full"
-    onClick={onClick}
-  >
-    {children}
-  </Link>
-);
-
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header
-      className={`
-        fixed left-0 right-0 top-0 z-50 mx-auto flex w-[calc(100%-2rem)] items-center justify-between transition-all duration-300
-        ${isScrolled ? "bg-blion-dark/80 shadow-lg backdrop-blur-sm mt-1 px-6" : "bg-transparent mt-4 px-4"}
-        py-4
-      `}
-    >
-      <Link to="/" className="flex items-center">
-        <span className="text-3xl font-bold font-bricolage text-gradient">Blion</span>
-      </Link>
-      {/* Desktop menu */}
-      <nav className="hidden md:flex items-center space-x-6">
-        {NAV_LINKS.map((nl) => (
-          <NavLink key={nl.href} href={nl.href}>{nl.label}</NavLink>
-        ))}
-        <Link
-          to="/book"
-          className="rounded-full bg-blion-purple px-5 py-1.5 text-sm font-medium text-white transition-all hover:bg-blion-purple-dark ml-2 shadow-md hover:scale-105 transform duration-200"
-        >
-          Book a Call
-        </Link>
-      </nav>
-      {/* Mobile menu button */}
+    <header className="fixed right-4 top-4 z-50">
+      {/* Dot menu button */}
       <button
-        className="flex md:hidden text-white z-50"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-blion-dark/80 backdrop-blur-sm 
+                 text-white transition-all hover:bg-blion-dark shadow-lg border border-white/10"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <MoreVertical size={20} />
       </button>
-      {/* Mobile menu */}
+
+      {/* Menu dropdown */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-blion-dark"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="absolute right-0 top-12 w-48 rounded-lg bg-blion-dark/95 backdrop-blur-sm 
+                     shadow-lg border border-white/10 py-2"
           >
-            <nav className="flex flex-col items-center space-y-8 text-2xl">
-              {NAV_LINKS.map((nl) =>
-                <NavLink key={nl.href} href={nl.href} onClick={closeMenu}>{nl.label}</NavLink>
-              )}
+            <nav className="flex flex-col">
+              {NAV_LINKS.map((nl) => (
+                <Link
+                  key={nl.href}
+                  to={nl.href}
+                  className="px-4 py-2 text-[15px] text-white/80 hover:text-white hover:bg-white/5 
+                           transition-colors tracking-wide font-bricolage"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {nl.label}
+                </Link>
+              ))}
               <Link
                 to="/book"
-                className="mt-6 rounded-full bg-blion-purple px-8 py-3 font-medium text-white shadow-md transition-all hover:bg-blion-purple-dark hover:scale-105 transform duration-200"
-                onClick={closeMenu}
+                className="mt-2 mx-4 rounded-full bg-blion-purple px-4 py-1.5 text-sm font-medium 
+                         text-white transition-all hover:bg-blion-purple-dark text-center"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Book a Call
               </Link>

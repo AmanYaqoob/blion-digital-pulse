@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Globe,
   Palette,
@@ -12,7 +13,9 @@ import {
   Layers,
   Database,
   ChevronDown,
+  ArrowRight,
 } from "lucide-react";
+import { Button } from "./ui/button";
 
 const customIcons = {
   "Web Development": <Globe size={36} className="text-blion-purple" />,
@@ -108,33 +111,44 @@ const Services = () => {
             <div
               key={service.name}
               className={
-                "glass-card p-8 rounded-xl border transition-all group" +
+                "glass-card p-8 rounded-xl border transition-all group flex flex-col justify-between" +
                 (service.highlight
                   ? " border-blion-purple bg-blion-purple/10 shadow-lg scale-105"
                   : " border-white/10 hover:border-blion-purple/60 hover:bg-blion-purple/5")
               }
             >
-              <div className="flex items-center mb-6">
-                <div className="h-14 w-14 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mr-4">
-                  {customIcons[service.name]}
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="h-14 w-14 flex items-center justify-center rounded-lg bg-blion-purple/20 text-blion-purple mr-4">
+                    {customIcons[service.name]}
+                  </div>
+                  <h3 className="text-xl font-bold font-bricolage">
+                    {service.name}
+                    {service.highlight && (
+                      <span className="ml-2 px-2 py-1 bg-blion-purple text-white text-xs rounded-full font-medium uppercase tracking-wide">
+                        Specialized
+                      </span>
+                    )}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold font-bricolage">
-                  {service.name}
-                  {service.highlight && (
-                    <span className="ml-2 px-2 py-1 bg-blion-purple text-white text-xs rounded-full font-medium uppercase tracking-wide">
-                      Specialized
-                    </span>
-                  )}
-                </h3>
+                <p className="text-gray-300 mb-6">{service.description}</p>
               </div>
-              <p className="text-gray-300">{service.description}</p>
+              <Button 
+                asChild
+                className="bg-blion-purple hover:bg-blion-purple-dark text-white w-full group"
+              >
+                <Link to="/book" className="flex items-center justify-center">
+                  Start a Project
+                  <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           ))}
         </div>
         {services.length > 6 && (
           <div className="text-center mt-10">
-            <button
-              onClick={() => setShowAll(!showAll)}
+            <Link
+              to="/services"
               className="group inline-flex flex-col items-center gap-2 cursor-pointer transition-all duration-300"
             >
               <span className="text-gray-400 group-hover:text-blion-purple transition-colors">
@@ -150,7 +164,7 @@ const Services = () => {
                   />
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
         )}
       </div>

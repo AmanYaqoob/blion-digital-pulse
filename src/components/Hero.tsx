@@ -112,7 +112,7 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-blion-purple/50 text-blion-purple hover:bg-blion-purple/10 hover:border-blion-purple transition-all duration-300 group text-lg py-7 px-10"
+              className="border-blion-purple/50 text-black hover:bg-blion-purple/10 hover:border-blion-purple transition-all duration-300 group text-lg py-7 px-10"
             >
               <Link to="/portfolio" className="flex items-center">
                 View Our Work

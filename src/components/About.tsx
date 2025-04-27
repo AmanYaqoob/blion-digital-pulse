@@ -1,14 +1,13 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle, Users, BarChart3, Calendar, Code, Database, Globe, Cloud, Cpu, Monitor } from "lucide-react";
 
-const CountUpNumber = ({ end, duration = 2000 }) => {
+const CountUpNumber = ({ end, duration = 2000, inView }) => {
   const [count, setCount] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isAnimating) return;
+    if (!inView || hasAnimated) return;
     
     let startTime: number;
     let animationFrame: number;
@@ -23,16 +22,13 @@ const CountUpNumber = ({ end, duration = 2000 }) => {
         animationFrame = requestAnimationFrame(animate);
       } else {
         setCount(end);
+        setHasAnimated(true);
       }
     };
 
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, [end, duration, isAnimating]);
-
-  useEffect(() => {
-    setIsAnimating(true);
-  }, []);
+  }, [end, duration, inView, hasAnimated]);
 
   return <>{count}+</>;
 };
@@ -57,9 +53,30 @@ const FloatingIcon = ({ icon, x, y, delay }: { icon: React.ReactNode; x: number;
   </motion.div>
 );
 
+const CompanyMarquee = () => {
+  const companies = [
+    "Poolie", "Truster Hunter", "RWW", "TechCorp", "InnovateLabs", "DigitalFlow"
+  ];
+
+  return (
+    <div className="relative overflow-hidden py-10 bg-black/20">
+      <div className="flex space-x-16 animate-scroll">
+        {[...companies, ...companies].map((company, index) => (
+          <span
+            key={index}
+            className="text-2xl font-bricolage text-white/60 whitespace-nowrap"
+          >
+            {company}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const stats = [
     {
@@ -116,7 +133,7 @@ const About = () => {
                   <div className="mb-3">{stat.icon}</div>
                   <div className="text-3xl font-bold font-bricolage mb-1">
                     {typeof stat.value === 'number' ? (
-                      <CountUpNumber end={stat.value} />
+                      <CountUpNumber end={stat.value} inView={isInView} />
                     ) : (
                       stat.value
                     )}
@@ -127,6 +144,8 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        <CompanyMarquee />
       </div>
     </section>
   );

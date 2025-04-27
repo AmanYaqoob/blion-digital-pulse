@@ -114,4 +114,18 @@
   .text-gradient {
     @apply bg-gradient-to-r from-blion-purple-light via-blion-purple to-blion-purple-dark bg-clip-text text-transparent;
   }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
 }
+

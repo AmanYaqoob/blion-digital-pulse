@@ -53,27 +53,6 @@ const FloatingIcon = ({ icon, x, y, delay }: { icon: React.ReactNode; x: number;
   </motion.div>
 );
 
-const CompanyMarquee = () => {
-  const companies = [
-    "Poolie", "Truster Hunter", "RWW", "TechCorp", "InnovateLabs", "DigitalFlow"
-  ];
-
-  return (
-    <div className="relative overflow-hidden py-10 bg-black/20">
-      <div className="flex space-x-16 animate-scroll">
-        {[...companies, ...companies].map((company, index) => (
-          <span
-            key={index}
-            className="text-2xl font-bricolage text-white/60 whitespace-nowrap"
-          >
-            {company}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -110,42 +89,46 @@ const About = () => {
       <FloatingIcon icon={<Cpu size={24} />} x={-180} y={-80} delay={2} />
       <FloatingIcon icon={<Monitor size={24} />} x={180} y={220} delay={2.5} />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center" ref={ref}>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold font-bricolage mb-6">
-              About <span className="text-gradient">Blion</span>
-            </h2>
-            <p className="text-gray-300 mb-6">
-              Blion is a premium digital agency focused on creating exceptional digital experiences that drive growth and engagement. We blend creativity with technical expertise to deliver solutions that stand out in the digital landscape.
-            </p>
-            <p className="text-gray-300 mb-8">
-              Our specialized team excels in developing property management websites, crafting custom web applications, and designing intuitive user interfaces that elevate your brand and enhance user experience.
-            </p>
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-bricolage mb-6">
+                About <span className="text-gradient">Blion</span>
+              </h2>
+              <p className="text-gray-300 text-lg mb-6">
+                Blion is a premium digital agency focused on creating exceptional digital experiences that drive growth and engagement. We blend creativity with technical expertise to deliver solutions that stand out in the digital landscape.
+              </p>
+              <p className="text-gray-300 text-lg">
+                Our specialized team excels in developing property management websites, crafting custom web applications, and designing intuitive user interfaces that elevate your brand and enhance user experience.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {stats.map((stat, index) => (
-                <div key={index} className="flex flex-col items-center text-center glass-card p-6 rounded-xl">
+                <div 
+                  key={index} 
+                  className="flex flex-col items-center text-center glass-card p-4 sm:p-6 rounded-xl hover:border-blion-purple/30 transition-colors duration-300"
+                >
                   <div className="mb-3">{stat.icon}</div>
-                  <div className="text-3xl font-bold font-bricolage mb-1">
+                  <div className="text-2xl sm:text-3xl font-bold font-bricolage mb-1">
                     {typeof stat.value === 'number' ? (
                       <CountUpNumber end={stat.value} inView={isInView} />
                     ) : (
                       stat.value
                     )}
                   </div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                  <div className="text-gray-400 text-sm sm:text-base">{stat.label}</div>
                 </div>
               ))}
             </div>
           </motion.div>
         </div>
-
-        <CompanyMarquee />
       </div>
     </section>
   );

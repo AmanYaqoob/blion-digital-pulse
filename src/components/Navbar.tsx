@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MoreVertical, Linkedin, Instagram } from "lucide-react";
@@ -62,9 +61,16 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Company Name */}
-      <Link to="/" className="text-2xl font-bricolage font-bold text-white absolute left-1/2 transform -translate-x-1/2 hover:text-blion-purple transition-colors">
-        Blizon
+      {/* Company Logo */}
+      <Link 
+        to="/" 
+        className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-90 transition-opacity"
+      >
+        <img 
+          src="/lovable-uploads/0913ca77-b3b6-4d84-86d7-635db6a9da1a.png" 
+          alt="Blizon Logo" 
+          className="h-8 w-auto"
+        />
       </Link>
 
       {/* Menu Button */}

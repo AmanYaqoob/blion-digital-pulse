@@ -63,9 +63,9 @@ const Navbar = () => {
       </div>
 
       {/* Company Name */}
-      <h1 className="text-2xl font-bricolage font-bold text-white absolute left-1/2 transform -translate-x-1/2">
+      <Link to="/" className="text-2xl font-bricolage font-bold text-white absolute left-1/2 transform -translate-x-1/2 hover:text-blion-purple transition-colors">
         Blizon
-      </h1>
+      </Link>
 
       {/* Menu Button */}
       <div className="relative">

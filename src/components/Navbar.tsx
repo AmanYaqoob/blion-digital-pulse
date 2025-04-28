@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MoreVertical, Linkedin, Instagram } from "lucide-react";
@@ -52,7 +53,10 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = 'unset';
+            }}
           />
         )}
       </AnimatePresence>
@@ -95,7 +99,7 @@ const Navbar = () => {
           </Link>
 
           {/* Menu Button */}
-          <div className="relative">
+          <div className="relative z-50">
             <button
               className="flex h-10 w-10 items-center justify-center rounded-full bg-blion-dark/80 backdrop-blur-sm 
                        text-white transition-all hover:bg-blion-dark shadow-lg border border-white/10"
@@ -121,8 +125,8 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -20, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute right-0 top-12 w-64 rounded-lg bg-blion-dark/95 backdrop-blur-sm 
-                           shadow-lg border border-white/10 py-2"
+                  className="fixed right-4 top-16 w-64 rounded-lg bg-blion-dark/95 backdrop-blur-sm 
+                           shadow-lg border border-white/10 py-2 z-50"
                 >
                   <nav className="flex flex-col">
                     {NAV_LINKS.map((nl) => (

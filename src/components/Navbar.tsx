@@ -109,10 +109,11 @@ const Navbar = () => {
               <MoreVertical size={20} />
             </button>
 
-            {/* Section Indicator */}
-            {activeSection && (
+            {/* Section Indicator - Only show when scrolled and section is active */}
+            {activeSection && scrollY > 100 && (
               <div className="absolute right-14 top-1/2 -translate-y-1/2 bg-blion-dark/80 backdrop-blur-sm 
-                            rounded-full py-1 px-4 text-xs text-white/80 border border-white/10">
+                            rounded-full py-1 px-4 text-xs text-white/80 border border-white/10 
+                            animate-fade-in">
                 {activeSection}
               </div>
             )}

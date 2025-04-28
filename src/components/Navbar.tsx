@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MoreVertical, Linkedin, Instagram } from "lucide-react";
@@ -20,7 +19,6 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-    // Toggle body scroll when menu is open
     document.body.style.overflow = !isMenuOpen ? 'hidden' : 'unset';
   };
 
@@ -59,9 +57,9 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <header className="fixed w-full z-50">
-        {/* Top bar with fixed logo and social links */}
-        <div className="absolute top-4 w-full px-4 flex items-center justify-between">
+      <header className="w-full z-50">
+        {/* Top bar with logo and social links */}
+        <div className="w-full px-4 py-4 flex items-center justify-between">
           {/* Social Media Links */}
           <div className="flex gap-4">
             <a
@@ -96,8 +94,8 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Menu Button - Follows scroll */}
-          <div className="relative" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          {/* Menu Button */}
+          <div className="relative">
             <button
               className="flex h-10 w-10 items-center justify-center rounded-full bg-blion-dark/80 backdrop-blur-sm 
                        text-white transition-all hover:bg-blion-dark shadow-lg border border-white/10"

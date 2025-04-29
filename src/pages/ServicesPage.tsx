@@ -3,7 +3,8 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Globe, Paintbrush, Video, BarChart3, Database, Webhook, Building } from "lucide-react";
+import { ArrowRight, Code2, Globe, Paintbrush, Video, BarChart3, Database, Webhook, Building, FolderCode, TabletSmartphone, } from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 interface ServiceDetailProps {
@@ -73,6 +74,32 @@ const ServicesPage = () => {
         "Progressive Web Applications (PWAs)",
         "Content Management Systems (CMS)",
         "Website maintenance and support",
+      ],
+    },
+    {
+      icon: <TabletSmartphone size={28} />,
+      title: "Custom Hybrid Application",
+      description:
+        "We develop powerful, cross-platform hybrid applications that deliver native-like performance while maximizing reach and efficiency across iOS and Android.",
+      features: [
+        "Custom hybrid app development",
+        "Cross-platform UI/UX design",
+        "Integration with third-party APIs",
+        "Offline functionality and data syncing",
+        "App store deployment and maintenance",
+      ],
+    },
+    {
+      icon: <FolderCode size={28} />,
+      title: "Web Base Software",
+      description:
+        "We build scalable, secure, and user-friendly web-based software solutions designed to streamline your operations and accelerate business growth.",
+      features: [
+        "Custom web application development",
+        "SaaS (Software as a Service) solutions",
+        "API integration and development",
+        "Enterprise software systems",
+        "Ongoing software maintenance and support",
       ],
     },
     {

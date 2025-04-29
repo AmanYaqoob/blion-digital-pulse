@@ -87,7 +87,7 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-bricolage leading-tight mb-8">
+          <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-tight mb-8">
             Elevate Your <span className="text-gradient">Digital Presence</span><br /> 
             With Premium Solutions
           </h1>
@@ -112,7 +112,7 @@ const Hero = () => {
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-blion-purple/50 text-black hover:bg-blion-purple/10 hover:border-blion-purple transition-all duration-300 group text-lg py-7 px-10"
+              className="border-blion-purple/50 text-black hover:bg-blion-purple/10 hover:text-white hover:border-blion-purple transition-all duration-300 group text-lg py-7 px-10"
             >
               <Link to="/portfolio" className="flex items-center">
                 View Our Work

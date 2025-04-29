@@ -61,7 +61,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <header className="w-full z-50">
+      <header className="w-full z-50 py-3 px-5">
         {/* Top bar with logo and social links */}
         <div className="w-full px-4 py-4 flex items-center justify-between">
           {/* Social Media Links */}
@@ -94,7 +94,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/0913ca77-b3b6-4d84-86d7-635db6a9da1a.png" 
               alt="Blizon Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 

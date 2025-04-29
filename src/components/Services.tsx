@@ -33,6 +33,12 @@ const customIcons = {
 
 const services = [
   {
+    name: "Property Management Websites",
+    description:
+      "Specialized solutions for property managers: Listing management, tenant portals, maintenance requests, rent processing, and analytics.",
+    highlight: true,
+  },
+  {
     name: "Web Development",
     description:
       "Build high-performance, responsive, and modern websites tailored for your business, focusing on user experience and growth.",
@@ -56,12 +62,6 @@ const services = [
     name: "Web Scraping",
     description:
       "Automate information gathering and gain insights with custom scraping and data collection tools for your business.",
-  },
-  {
-    name: "Property Management Websites",
-    description:
-      "Specialized solutions for property managers: Listing management, tenant portals, maintenance requests, rent processing, and analytics.",
-    highlight: true,
   },
   {
     name: "Scripting & Automation",
